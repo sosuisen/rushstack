@@ -8,25 +8,21 @@ StringBuilder {
 
 This is a <b>bold</b> word.
 
-## All whitespace bold
-
-  
-
 ## Newline bold
 
 <b>line 1</b> <b>line 2</b>
 
 ## Newline bold with spaces
 
-  <b>line 1</b>    <b>line 2</b>    <b>line 3</b>  
+  <b>line 1</b>    <b>line 2</b>    <b>line 3</b>
 
 ## Adjacent bold regions
 
-<b>one</b><b>two</b> <b>three</b> <b>four</b>non-bold<!-- --><b>five</b>
+<b>one</b><b>two</b> <b>three</b> <b>four</b>non-bold <b>five</b>
 
 ## Adjacent to other characters
 
-[a link](./index.md)<!-- --><b>bold</b>non-boldmore-non-bold
+[a link](./index.md) <b>bold</b>non-boldmore-non-bold
 
 ## Unknown block tag
 

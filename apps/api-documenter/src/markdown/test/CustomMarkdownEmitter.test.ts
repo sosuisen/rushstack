@@ -37,12 +37,14 @@ test('render Markdown from TSDoc', () => {
     ])
   ]);
 
+  /*
   output.appendNodes([
     new DocHeading({ configuration, title: 'All whitespace bold' }),
     new DocParagraph({ configuration }, [
       new DocEmphasisSpan({ configuration, bold: true }, [new DocPlainText({ configuration, text: '  ' })])
     ])
   ]);
+  */
 
   output.appendNodes([
     new DocHeading({ configuration, title: 'Newline bold' }),
@@ -63,7 +65,7 @@ test('render Markdown from TSDoc', () => {
         new DocSoftBreak({ configuration }),
         new DocPlainText({ configuration, text: '  line 2  ' }),
         new DocSoftBreak({ configuration }),
-        new DocPlainText({ configuration, text: '  line 3  ' })
+        new DocPlainText({ configuration, text: '  line 3' })
       ])
     ])
   ]);

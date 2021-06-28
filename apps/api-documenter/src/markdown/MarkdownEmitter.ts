@@ -241,7 +241,10 @@ export class MarkdownEmitter {
           // This is no problem:        "**one** *two* **three**"
           // But this is trouble:       "**one***two***three**"
           // The most general solution: "**one**<!-- -->*two*<!-- -->**three**"
-          writer.write('<!-- -->');
+          // writer.write('<!-- -->');
+
+          // Don't use <!-- --> because Docusaurus API v2 cannot parse tag-like token <>.
+          writer.write(' ');
           break;
       }
 
