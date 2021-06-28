@@ -308,9 +308,20 @@ export class MarkdownDocumenter {
     const filename: string = path.join(this._outputFolder, this._getFilenameForApiItem(apiItem));
     const stringBuilder: StringBuilder = new StringBuilder();
 
+    const labelArray: string[] = scopedName.split('.');
+    let label: string;
+    if (labelArray.length > 1) {
+      label = labelArray[labelArray.length-1];
+    }
+    else {
+      label = title
+    }
+
     stringBuilder.append(
       `---
-sidebar_label: ${title}
+sidebar_label: ${label}
+title: ${title}
+hide_title: true
 ---
 
 `
