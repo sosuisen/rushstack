@@ -357,19 +357,29 @@ hide_title: true
 
     if (apiItem instanceof ApiClass) {
       if (apiItem.extendsType) {
-        const extendsParagraph: DocParagraph = new DocParagraph({ configuration }, [
-          new DocEmphasisSpan({ configuration, bold: true }, [
-            new DocPlainText({ configuration, text: 'Extends: ' })
+        output.appendNode(
+          new DocParagraph({ configuration }, [
+            new DocEmphasisSpan({ configuration, bold: true }, [
+              new DocPlainText({ configuration, text: 'Extends:' })
+            ])
           ])
+        );
+        const extendsParagraph: DocParagraph = new DocParagraph({ configuration }, [
+          new DocPlainText({ configuration, text: '' })
         ]);
         this._appendExcerptWithHyperlinks(extendsParagraph, apiItem.extendsType.excerpt);
         output.appendNode(extendsParagraph);
       }
       if (apiItem.implementsTypes.length > 0) {
-        const extendsParagraph: DocParagraph = new DocParagraph({ configuration }, [
-          new DocEmphasisSpan({ configuration, bold: true }, [
-            new DocPlainText({ configuration, text: 'Implements: ' })
+        output.appendNode(
+          new DocParagraph({ configuration }, [
+            new DocEmphasisSpan({ configuration, bold: true }, [
+              new DocPlainText({ configuration, text: 'Implements:' })
+            ])
           ])
+        );
+        const extendsParagraph: DocParagraph = new DocParagraph({ configuration }, [
+          new DocPlainText({ configuration, text: '' })
         ]);
         let needsComma: boolean = false;
         for (const implementsType of apiItem.implementsTypes) {
@@ -385,10 +395,15 @@ hide_title: true
 
     if (apiItem instanceof ApiInterface) {
       if (apiItem.extendsTypes.length > 0) {
-        const extendsParagraph: DocParagraph = new DocParagraph({ configuration }, [
-          new DocEmphasisSpan({ configuration, bold: true }, [
-            new DocPlainText({ configuration, text: 'Extends: ' })
+        output.appendNode(
+          new DocParagraph({ configuration }, [
+            new DocEmphasisSpan({ configuration, bold: true }, [
+              new DocPlainText({ configuration, text: 'Extends:' })
+            ])
           ])
+        );
+        const extendsParagraph: DocParagraph = new DocParagraph({ configuration }, [
+          new DocPlainText({ configuration, text: '' })
         ]);
         let needsComma: boolean = false;
         for (const extendsType of apiItem.extendsTypes) {
@@ -410,10 +425,15 @@ hide_title: true
           this._apiModel.resolveDeclarationReference(token.canonicalReference, undefined).resolvedApiItem
       );
       if (refs.length > 0) {
-        const referencesParagraph: DocParagraph = new DocParagraph({ configuration }, [
-          new DocEmphasisSpan({ configuration, bold: true }, [
-            new DocPlainText({ configuration, text: 'References: ' })
+        output.appendNode(
+          new DocParagraph({ configuration }, [
+            new DocEmphasisSpan({ configuration, bold: true }, [
+              new DocPlainText({ configuration, text: 'References:' })
+            ])
           ])
+        );
+        const referencesParagraph: DocParagraph = new DocParagraph({ configuration }, [
+          new DocPlainText({ configuration, text: '' })
         ]);
         let needsComma: boolean = false;
         const visited: Set<string> = new Set();
