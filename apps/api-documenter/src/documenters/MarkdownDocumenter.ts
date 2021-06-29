@@ -279,7 +279,6 @@ export class MarkdownDocumenter {
       case ApiItemKind.MethodSignature:
       case ApiItemKind.Function:
         this._writeParameterTables(output, apiItem as ApiParameterListMixin);
-        this._writeThrowsSection(output, apiItem);
         break;
       case ApiItemKind.Namespace:
         this._writePackageOrNamespaceTables(output, apiItem as ApiNamespace);
@@ -303,6 +302,16 @@ export class MarkdownDocumenter {
 
     if (appendRemarks) {
       this._writeRemarksSection(output, apiItem);
+    }
+
+    switch (apiItem.kind) {
+      case ApiItemKind.Constructor:
+      case ApiItemKind.ConstructSignature:
+      case ApiItemKind.Method:
+      case ApiItemKind.MethodSignature:
+      case ApiItemKind.Function:
+        this._writeThrowsSection(output, apiItem);
+        break;
     }
 
     const filename: string = path.join(this._outputFolder, this._getFilenameForApiItem(apiItem));
